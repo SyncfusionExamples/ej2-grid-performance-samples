@@ -1,0 +1,14 @@
+.grid-title {
+  display: inline-flex;
+  margin: 0;
+}
+
+#performanceTime {
+  display: inline-flex;
+  float: right;
+  margin: 0;
+}
+
+.control-section {
+  margin-top: 10px;
+}

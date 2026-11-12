@@ -1,0 +1,58 @@
+<button id="render" type="button" (click)="renderGrid()">Render Grid</button>
+<button id="destroy" type="button" (click)="destroyGrid()">Destroy Grid</button>
+<ejs-dropdownlist
+  id="ddl"
+  [dataSource]="pageSizes"
+  [fields]="dropdownFields"
+  [value]="pageSettings.pageSize"
+  [width]="200"
+  [popupHeight]="'200px'"
+  (change)="onPageSizeChange($event)"
+></ejs-dropdownlist>
+
+@if (gridVisible) {
+  <h4 class="grid-title">Combination of all actions</h4>
+  <p id="performanceTime" aria-live="polite">
+    @if (performanceAction()) {
+      Time Taken for {{ performanceAction() }}: <b>{{ performanceDuration() }}ms</b>
+    }
+  </p>
+  <div class="control-section">
+    <ejs-grid
+      [dataSource]="tradeData"
+      [allowSorting]="true"
+      [allowFiltering]="true"
+      [filterSettings]="filterSettings"
+      [allowPaging]="true"
+      [enableDomVirtualization]="true"
+      [pageSettings]="pageSettings"
+      [height]="350"
+      (actionBegin)="onActionBegin()"
+      (actionComplete)="onActionComplete($event)"
+      (created)="onGridCreated()"
+    >
+      <e-columns>
+        <e-column field="EmployeeID" headerText="Employee ID" [width]="130"></e-column>
+        <e-column field="Employees" headerText="Employee Name" [width]="130"></e-column>
+        <e-column field="Designation" headerText="Designation" [width]="130"></e-column>
+        <e-column field="Mail" headerText="Mail" [width]="150"></e-column>
+        <e-column field="Location" headerText="Location" [width]="100"></e-column>
+        <e-column field="Status" headerText="Status" [width]="90"></e-column>
+        <e-column field="Trustworthiness" headerText="Trustworthiness" [width]="150"></e-column>
+        <e-column field="Rating" headerText="Rating" [width]="80"></e-column>
+        <e-column field="Software" headerText="Software Proficiency" [width]="160"></e-column>
+        <e-column field="CurrentSalary" headerText="Current Salary" format="C0" [width]="150"></e-column>
+        <e-column field="Address" headerText="Address" [width]="200"></e-column>
+        <e-column field="Category" headerText="Category" [width]="100"></e-column>
+        <e-column field="check" headerText="Check" type="boolean" [width]="80"></e-column>
+        <e-column field="Department" headerText="Department" [width]="140"></e-column>
+        <e-column field="HireDate" headerText="Hire Date" type="date" format="yMd" [width]="120"></e-column>
+        <e-column field="Experience" headerText="Experience (Yrs)" type="number" [width]="100"></e-column>
+        <e-column field="Skills" headerText="Skills" [width]="150"></e-column>
+        <e-column field="Projects" headerText="Projects" [width]="110"></e-column>
+        <e-column field="Languages" headerText="Languages" [width]="120"></e-column>
+        <e-column field="Manager" headerText="Manager" [width]="130"></e-column>
+      </e-columns>
+    </ejs-grid>
+  </div>
+}
