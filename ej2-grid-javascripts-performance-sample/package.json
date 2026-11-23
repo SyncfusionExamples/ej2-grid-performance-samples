@@ -36,6 +36,6 @@
   "dependencies": {
     "@syncfusion/ej2": "*",
     "@syncfusion/ej2-grids": "*",
-    "@syncfusion/ej2-material3-theme": "*"
+    "@syncfusion/ej2-material-theme": "*"
   }
 }
